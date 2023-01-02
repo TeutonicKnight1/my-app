@@ -1,0 +1,91 @@
+.ListElement {
+  font-family: Arial;
+  font-weight: 12px;
+  margin: 1%;
+  position: inherit;
+  top: 0;
+  left: 3%;
+  right: 3%;
+  border: 2px solid;
+  width: 92%;
+  background-color: white;
+  border-radius: 20px;
+  min-height: 100px;
+}
+
+.ListElementHeader {
+  margin: 20px;
+}
+
+.ChangeListElementInput {
+  display: block;
+  margin: 20px;
+  border: 2px black solid;
+  border-radius: 5px;
+}
+
+.ChangeListElementTextarea {
+  margin: 0px 20px 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+  max-width: 93%;
+  position: inherit;
+  min-width: 93%;
+  height: 32px;
+  min-height: 50px;
+}
+
+.BtnListElementAgree {
+  position: absolute;
+  top: 10px;
+  right: 100px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #66FF99;
+}
+
+.BtnListElementAgreeImg {
+  height: 25px;
+  width: 25px;
+  margin-top: 4px;
+}
+
+.BtnListElementChange {
+  
+  position: absolute;
+  top: 10px;
+  right: 55px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #66FF99;
+}
+
+.BtnListElementChangeImg {
+  height: 25px;
+  width: 25px;
+  margin-top: 4px;
+}
+
+.BtnListElementDelete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #66FF99;
+}
+
+.BtnListElementDeleteImg {
+  height: 25px;
+  width: 25px;
+  margin-top: 4px;
+}
+
+.ListElementText {
+  margin: 20px;
+}
+
+

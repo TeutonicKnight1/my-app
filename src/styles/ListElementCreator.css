@@ -1,0 +1,64 @@
+.ListElementCreator {
+    margin: 1%;
+    position: inherit;
+    top: 0;
+    left: 3%;
+    right: 3%;
+    border: 2px solid;
+    width: 92%;
+    background-color: white;
+    border-radius: 20px;
+    min-height: 100px;
+}
+
+.DivNameOfNewTask {
+    margin: 20px;
+}
+
+.DivTextOfNewTask {
+    margin: 20px;
+}
+
+.hNameOfNewTask {
+    display: inline;
+    margin: 10px 0;
+}
+
+#NameOfNewTask {
+    margin: 10px 0;
+    display: block;
+    border: 2px solid;
+    border-radius: 5px;
+    min-height: 18px;
+    font-family: Arial;
+}
+
+.BtnOfNewTask {
+    position: absolute;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: #66FF99;
+}
+
+.CrossImg {
+    margin-top: 3px;
+    width: 20px;
+    height: 20px;
+    transform: rotate(45deg);
+}
+
+#TextOfNewTask {
+    position: inherit;
+    border: 2px solid;
+    border-radius: 5px;
+    max-width: 99%;
+    min-width: 99%;
+    min-height: 50px;
+}
+
+.hTextOfNewTask {
+    margin: 10px 0;
+}
+
