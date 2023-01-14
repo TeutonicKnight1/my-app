@@ -20,26 +20,36 @@
 }
 
 .hNameOfNewTask {
-    display: inline;
+    display: block;
     margin: 10px 0;
 }
 
 #NameOfNewTask {
-    margin: 10px 0;
-    display: block;
+    margin-right: 10px;
+    display: inline;
     border: 2px solid;
     border-radius: 5px;
     min-height: 18px;
-    font-family: Arial;
 }
+
+#SpanNameOfNewTaskIsEmpty_no {
+    display: none;
+}
+
+#SpanNameOfNewTaskIsEmpty {
+    display: inline;
+    color: red;
+}
+
 
 .BtnOfNewTask {
     position: absolute;
+    top:20px;
     right: 20px;
     width: 40px;
     height: 40px;
     border-radius: 100%;
-    background-color: #66FF99;
+    background-color: #37b5ff;
 }
 
 .CrossImg {
@@ -50,6 +60,7 @@
 }
 
 #TextOfNewTask {
+    font-family: Arial, Helvetica, sans-serif;
     position: inherit;
     border: 2px solid;
     border-radius: 5px;
