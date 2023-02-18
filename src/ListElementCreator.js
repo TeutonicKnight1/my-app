@@ -1,12 +1,12 @@
 import React from 'react';
 import './styles/ListElementCreator.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { AddTaskAction } from './reducers/reducers';
+import { addTask } from './reducers/reducers';
 
 function ListElementCreator() {
     const dispatch = useDispatch()
-    const isEmpty = useSelector(state => state.isEmpty)
-    const TaskArr = useSelector(state => state.TaskArr)
+    const isEmpty = useSelector(state => state.reducer.isEmpty)
+    const TaskArr = useSelector(state => state.reducer.TaskArr)
 
     const AddTaskHandler = () => {
         const name = document.querySelector('#NameOfNewTask').value;
@@ -19,17 +19,18 @@ function ListElementCreator() {
             text,
             isChange,
         }
-
-        dispatch(AddTaskAction(newTask))
+        dispatch(addTask(newTask))
     }
 
     return (
         <div className='ListElementCreator'>
             <div className='DivNameOfNewTask'>
-                <h3 className='hNameOfNewTask'>Заголовок</h3>
-                <button onClick={() => AddTaskHandler()} className='BtnOfNewTask'>
-                    <img className='CrossImg' src='/img/cross.png' alt=''/>
-                </button>
+                <div className='DivTaskHeader'>
+                    <h3 className='hNameOfNewTask'>Заголовок</h3>
+                    <button onClick={() => AddTaskHandler()} className='BtnOfNewTask'>
+                        <img className='CrossImg' src='/img/cross.png' alt=''/>
+                    </button>
+                </div>
                 <input type='text' autoComplete="off" size='30' id='NameOfNewTask'/>
                 {isEmpty === 1 &&
                     <span id='SpanNameOfNewTaskIsEmpty'>Это поле не может быть пустым</span>

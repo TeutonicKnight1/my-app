@@ -15,6 +15,11 @@
     margin: 20px;
 }
 
+.DivTaskHeader {
+    display: flex;
+    justify-content: space-between  ;
+}
+
 .DivTextOfNewTask {
     margin: 20px;
 }
@@ -41,11 +46,7 @@
     color: red;
 }
 
-
 .BtnOfNewTask {
-    position: absolute;
-    top:20px;
-    right: 20px;
     width: 40px;
     height: 40px;
     border-radius: 100%;
