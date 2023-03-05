@@ -24,3 +24,5 @@ jobs:
       # Build
       - run: npm ci
       - run: npm run build
+      #Deploy
+      - run: cd /root/todo_app/my-app/build && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . teutonic_knight@teutonic_knight.dev:/var/www/teutonic_knight.dev/html/
