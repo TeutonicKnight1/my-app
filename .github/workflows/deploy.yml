@@ -25,4 +25,4 @@ jobs:
       - run: npm ci
       - run: npm run build
       #Deploy
-      - run: cd build && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . teutonic_knight@teutonic_knight:/var/www/TeutonicKnight/
+      - run: cd build && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . teutonic_knight@45.146.166.151:/var/www/TeutonicKnight/
