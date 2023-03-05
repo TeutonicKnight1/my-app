@@ -1,12 +1,12 @@
 .ListElement {
   display: flex;
   flex-direction: column;
-  grid-template-columns: 724px 1fr 2fr;
   border: 2px solid;
   width: 92%;
   background-color: white;
   border-radius: 20px;
   min-height: 100px;
+  margin-top: 10px;
 }
 
 .divListElementName {
