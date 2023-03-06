@@ -1,10 +1,8 @@
-name: Deploy
-
+name: Deploy to Server
 on:
   push:
     branches:
       - master
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -26,7 +24,7 @@ jobs:
       - run: npm run build
       #Deploy
       #- run: cd build && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . root@45.146.166.151:/var/www/TeutonicKnight/
-      name: Deploy
+      name: Deploy to Server
       - uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
