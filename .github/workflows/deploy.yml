@@ -25,4 +25,15 @@ jobs:
       - run: npm ci
       - run: npm run build
       #Deploy
-      - run: cd build && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . root@45.146.166.151:/var/www/TeutonicKnight/
+      #- run: cd build && rsync -e "ssh -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . root@45.146.166.151:/var/www/TeutonicKnight/
+      name: Deploy
+      - uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            cd /root/todo_app/my-app
+            git pull
+            sudo systemctl restart myapp.service
