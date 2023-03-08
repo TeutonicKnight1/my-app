@@ -31,7 +31,7 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
         script: |
-          cd /var/www/react-app/
+          cd /var/www/react-app
           rm -rf *
-          mkdir build
-          scp -r -o StrictHostKeyChecking=no -o UserKnownHostsFile=~/.ssh/known_hosts -P 22 ./build/* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/react-app/
+          scp -r ${{ env.GITHUB_WORKSPACE }}/build/*
+          sudo service nginx reload
