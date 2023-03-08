@@ -31,7 +31,9 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
         script: |
-          cd /var/www/react-app
+          cd /var/www/react-app/my-app
+          rm package-lock.json
+          cd ..
           git pull origin master
           cd ./my-app
           npm run build
