@@ -65,6 +65,6 @@ jobs:
         password: ${{ secrets.SSH_PASSWORD }}
         script: |
           cd /var/www/react-app/
-          rm -rf *
+          rm -rf * 
           mkdir build
           scp -r -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -P 22 ./build/* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/react-app/
