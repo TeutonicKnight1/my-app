@@ -1,32 +1,67 @@
-name: Deploy to VPS
+# name: Deploy to VPS
+# on:
+#   push:
+#     branches:
+#       - master
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Checkout source code
+#       uses: actions/checkout@v2
+
+#     - name: Install Dependencies
+#       run: |
+#         # cd /root/todo_app/my-app
+#         npm install
+#     - name: Build and Package
+#       run: |
+#         # cd /root/todo_app/my-app
+#         npm run build
+#         tar -zcvf build.tar.gz build
+#     - name: Deploy to VPS
+#       uses: appleboy/ssh-action@master
+#       with:
+#         host: 45.146.166.151
+#         username: latypov12
+#         password: ${{ secrets.SSH_PASSWORD }}
+#         script: |
+#           mkdir -p /var/www/your-react-app
+#           cd /var/www/your-react-app
+#           rm -rf *
+#           tar -zxvf $HOME/build.tar.gz
+
+name: Deploy React App
+
 on:
   push:
     branches:
       - master
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout source code
+    - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install Dependencies
-      run: |
-        # cd /root/todo_app/my-app
-        npm install
-    - name: Build and Package
-      run: |
-        # cd /root/todo_app/my-app
-        npm run build
-        tar -zcvf build.tar.gz build
-    - name: Deploy to VPS
-      uses: appleboy/ssh-action@master
+    - name: Install Node.js and NPM
+      uses: actions/setup-node@v1
       with:
-        host: 45.146.166.151
-        username: latypov12
+        node-version: '18.x'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build and package app
+      run: npm run build
+
+    - name: Deploy to VPS
+      uses: easingthemes/ssh-deploy@v2.1.5
+      with:
+        server: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
-        script: |
-          mkdir -p /var/www/your-react-app
-          cd /var/www/your-react-app
-          rm -rf *
-          tar -zxvf $HOME/build.tar.gz
+        source: './build/'
+        target: '/var/www/react-app/'
