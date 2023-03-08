@@ -33,5 +33,5 @@ jobs:
         script: |
           cd /var/www/react-app
           rm -rf *
-          scp -r ${{ env.GITHUB_WORKSPACE }}/build/*
+          scp -r /build/*
           sudo service nginx reload
