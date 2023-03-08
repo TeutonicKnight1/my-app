@@ -58,10 +58,13 @@ jobs:
       run: npm run build
 
     - name: Deploy to VPS
-      uses: easingthemes/ssh-deploy@v2.1.5
+      uses: appleboy/ssh-action@master
       with:
-        server: ${{ secrets.SSH_HOST }}
+        host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
         password: ${{ secrets.SSH_PASSWORD }}
-        source: './build/'
-        target: '/var/www/react-app/'
+        script: |
+          cd /var/www/react-app/
+          rm -rf *
+          mkdir build
+          scp -r -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -P 22 ./build/* ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/var/www/react-app/
