@@ -1,14 +1,11 @@
 name: Deploy to VPS
-
 on:
   push:
     branches:
       - main
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout source code
       uses: actions/checkout@v2
@@ -17,13 +14,11 @@ jobs:
       run: |
         cd /root/todo_app/my-app
         npm install
-
     - name: Build and Package
       run: |
         cd /root/todo_app/my-app
         npm run build
         tar -zcvf build.tar.gz build
-
     - name: Deploy to VPS
       uses: appleboy/ssh-action@v0.19.0
       with:
