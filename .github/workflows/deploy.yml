@@ -32,6 +32,7 @@ jobs:
         password: ${{ secrets.SSH_PASSWORD }}
         script: |
           cd /var/www/react-app
-          rm -rf *
-          scp -r ${{ env.GITHUB_WORKSPACE }}/build/*
+          git pull
+          cd ./my-app
+          npm run build
           sudo service nginx reload
