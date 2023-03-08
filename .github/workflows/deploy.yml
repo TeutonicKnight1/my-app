@@ -15,7 +15,7 @@ jobs:
 
     - name: Install Node.js and NPM
       uses: actions/setup-node@v1
-      with:)
+      with:
         node-version: '18.x'
 
     - name: Install dependencies
