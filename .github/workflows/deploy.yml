@@ -12,11 +12,11 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        cd /root/todo_app/my-app
+        # cd /root/todo_app/my-app
         npm install
     - name: Build and Package
       run: |
-        cd /root/todo_app/my-app
+        # cd /root/todo_app/my-app
         npm run build
         tar -zcvf build.tar.gz build
     - name: Deploy to VPS
