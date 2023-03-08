@@ -32,9 +32,6 @@ jobs:
         password: ${{ secrets.SSH_PASSWORD }}
         script: |
           cd /var/www/react-app/my-app
-          rm package-lock.json
-          cd ..
           git pull origin master
-          cd ./my-app
           npm run build
           sudo service nginx reload
