@@ -34,4 +34,4 @@ jobs:
           cd /var/www/react-app/my-app
           git pull origin master
           npm run build
-          # sudo service nginx reload
+          
