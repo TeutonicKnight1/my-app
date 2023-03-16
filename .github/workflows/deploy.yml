@@ -24,6 +24,14 @@ jobs:
     - name: Build and package app
       run: npm run build
 
+     - name: Check commit message
+        run: |
+          if [[ $(git log -1 --pretty=%B) == update ]]; then
+            echo "new move"
+          else
+            echo "no update"
+          fi
+    
     - name: Deploy to VPS
       uses: appleboy/ssh-action@master
       with:
